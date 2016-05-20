@@ -12,6 +12,8 @@
 
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=cyrillic,latin' rel='stylesheet' type='text/css'>
 
+        <script src="http://api.backendless.com/sdk/js/latest/backendless.js"></script>
+
         <!-- inject:css -->
         <link rel="stylesheet" href="./css/font-awesome.min.css">
         <link rel="stylesheet" href="./css/main.css">
@@ -25,29 +27,49 @@
         <![endif]-->
 
         <main>
-            <h1>Pavel Glushkov</h1>
-            <h2>Frontend developer</h2>
-            <ul class="links">
-                <li><a target="_blank" href="http://ru.linkedin.com/in/pavelglushkov/"><i class="fa fa-linkedin"></i>&nbsp;LinkedIn</a></li>
-                <li><a target="_blank" href="https://github.com/pashutk"><i class="fa fa-github"></i>&nbsp;GitHub</a></li>
-                <li><a target="_blank" href="http://spb.hh.ru/resume/b53930adff019bebb60039ed1f334f39445359"><i class="fa fa-link"></i>&nbsp;HeadHunter</a></li>
-                <li><a target="_blank" href="callto:pashutk"><i class="fa fa-skype"></i>&nbsp;pashutk</a></li>
-                <li><a target="_blank" href="mailto:contact@pashutk.ru"><i class="fa fa-envelope"></i>&nbsp;email</a></li>
-                <li><a href="/me.gif"><i class="fa fa-picture-o"></i>&nbsp;me</a></li>
-                <li><a href="/wishlist.html"><i class="fa fa-gift"></i>&nbsp;wishlist</a></li>
-            </ul>
+            <h2>Wishlist</h2>
+            <ul class="links" id="wishes"></ul>
             
         </main>
 
 
         <script>
             window.onload = function(){
+                function getWishElement(wish) {
+                    wish = wish || {};
+                    var anchorEl = document.createElement('a');
+                    anchorEl.target = '_blank';
+                    anchorEl.href = wish.link || '';
+                    anchorEl.innerText = wish.name || '';
+                    anchorEl.style = !!wish.isOwned ? 'text-decoration: line-through;' : '';
+                    var liEl = document.createElement('li');
+                    liEl.appendChild(anchorEl);
+                    return liEl;
+                }
+
                 document.querySelector('main').classList.add('init');
+
+                var APPLICATION_ID = '2A8127EF-D203-BB20-FF75-3D4DD1038400',
+                    SECRET_KEY = '06980158-9BA4-5174-FF19-A6D6DE083500',
+                    VERSION = 'v1';
+                Backendless.initApp(APPLICATION_ID, SECRET_KEY, VERSION);
+
+                function Wish(args) {
+                    args = args || {};
+                    this.name = args.name || "";
+                    this.link = args.link || "";
+                    this.isOwned = args.isOwned || false;
+                }
+
+                var dataStore = Backendless.Persistence.of( Wish ); 
+                var wishes = dataStore.find().data;
+
+                var wishesParent = document.getElementById('wishes');
+                for(var i = 0; i < wishes.length; i++) {
+                    wishesParent.appendChild(getWishElement(wishes[i]));
+                }
             };
         </script>
-
-
-        <script src="js/main.js"></script>
 
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
