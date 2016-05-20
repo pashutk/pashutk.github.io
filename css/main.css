@@ -1,0 +1,152 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #1f1f20;
+  background-color: #fff;
+}
+a {
+  color: #2b4c7e;
+}
+a:hover {
+  text-decoration: none;
+}
+.wrap {
+  width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+header {
+  background-color: #567ebb;
+  color: #fff;
+}
+header h1 {
+  margin: 0;
+  font-size: 2em;
+  padding: 15px 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+header nav {
+  position: absolute;
+  right: 0;
+  top: 22px;
+  display: inline-block;
+  text-align: right;
+  vertical-align: middle;
+}
+header nav ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+header nav ul li {
+  margin: 0 0 0 10px;
+  padding: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+header nav ul li a {
+  font-size: 1.5em;
+  color: #fff;
+}
+.notebook {
+  border-color: #1f1f20;
+  margin-left: 20px;
+  display: block;
+}
+.notebook .body {
+  width: 100px;
+  height: 10px;
+  display: block;
+  border: 3px solid;
+}
+.notebook .display {
+  display: block;
+  width: 80px;
+  height: 56px;
+  border: 3px solid;
+  margin-bottom: -3px;
+  margin-left: 10px;
+}
+main {
+  display: block;
+  margin: 0 auto;
+  width: 400px;
+  color: #087070;
+  height: 300px;
+  position: absolute;
+  top: 50%;
+  margin-top: -150px;
+  left: 50%;
+  margin-left: -200px;
+  text-align: center;
+  -webkit-transition: -webkit-transform 0.9s ease-out;
+          transition: transform 0.9s ease-out;
+  -webkit-transform: scale(0.2);
+      -ms-transform: scale(0.2);
+          transform: scale(0.2);
+}
+main.init {
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+main.init h1,
+main.init h2,
+main.init ul.links {
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+main.init h2 {
+  -webkit-transition-delay: 0.1s;
+          transition-delay: 0.1s;
+}
+main.init ul.links {
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+}
+main h1 {
+  font-weight: 300;
+  margin-bottom: 0;
+  font-size: 3em;
+  -webkit-transform: scale(0.6);
+      -ms-transform: scale(0.6);
+          transform: scale(0.6);
+  -webkit-transition: -webkit-transform 0.9s ease;
+          transition: transform 0.9s ease;
+}
+main h2 {
+  font-weight: 400;
+  font-size: 2.5em;
+  margin-top: 0;
+  -webkit-transform: scale(0.6);
+      -ms-transform: scale(0.6);
+          transform: scale(0.6);
+  -webkit-transition: -webkit-transform 0.9s ease;
+          transition: transform 0.9s ease;
+}
+main ul.links {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  text-align: center;
+  -webkit-transform: scale(0.6);
+      -ms-transform: scale(0.6);
+          transform: scale(0.6);
+  -webkit-transition: -webkit-transform 0.9s ease;
+          transition: transform 0.9s ease;
+}
+main ul.links li {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 20px 10px;
+}
+main ul.links li a {
+  color: #022f32;
+  text-decoration: none;
+}
+main ul.links li a:hover {
+  color: #84ccc1;
+}
+
+/*# sourceMappingURL=sourcemaps/main.css.map */
