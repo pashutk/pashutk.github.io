@@ -41,7 +41,7 @@
                     anchorEl.target = '_blank';
                     anchorEl.href = wish.link || '';
                     anchorEl.innerText = wish.name || '';
-                    anchorEl.style = !!wish.isOwned ? 'text-decoration: line-through;' : '';
+                    anchorEl.style = !!wish.done ? 'text-decoration: line-through;' : '';
                     var liEl = document.createElement('li');
                     liEl.appendChild(anchorEl);
                     return liEl;
@@ -49,19 +49,22 @@
 
                 document.querySelector('main').classList.add('init');
 
-                var APPLICATION_ID = '2A8127EF-D203-BB20-FF75-3D4DD1038400',
-                    SECRET_KEY = '06980158-9BA4-5174-FF19-A6D6DE083500',
+                var APPLICATION_ID = 'D2E3FE51-89F1-E695-FF4C-11F2C6E82000',
+                    SECRET_KEY = '3C7D660C-859C-12C5-FF8C-52CC8DD81300',
                     VERSION = 'v1';
                 Backendless.initApp(APPLICATION_ID, SECRET_KEY, VERSION);
 
-                function Wish(args) {
+                Backendless.UserService.login("user@pashutk.ru", "password");
+
+                function Wishes(args) {
                     args = args || {};
                     this.name = args.name || "";
                     this.link = args.link || "";
-                    this.isOwned = args.isOwned || false;
+                    this.done = args.done || false;
+                    this.imageUrl = args.imageUrl || "";
                 }
 
-                var dataStore = Backendless.Persistence.of( Wish ); 
+                var dataStore = Backendless.Persistence.of( Wishes ); 
                 var wishes = dataStore.find().data;
 
                 var wishesParent = document.getElementById('wishes');

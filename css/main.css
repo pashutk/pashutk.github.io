@@ -2,6 +2,18 @@ body {
   font-family: 'Open Sans', sans-serif;
   color: #1f1f20;
   background-color: #fff;
+  height: 100vh;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
 }
 a {
   color: #2b4c7e;
@@ -70,14 +82,13 @@ header nav ul li a {
 main {
   display: block;
   margin: 0 auto;
-  width: 400px;
+  width: 100%;
+  padding: 0 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   color: #087070;
-  height: 300px;
-  position: absolute;
-  top: 50%;
-  margin-top: -150px;
-  left: 50%;
-  margin-left: -200px;
+  max-width: 450px;
   text-align: center;
   -webkit-transition: -webkit-transform 0.9s ease-out;
           transition: transform 0.9s ease-out;
@@ -114,6 +125,8 @@ main h1 {
           transform: scale(0.6);
   -webkit-transition: -webkit-transform 0.9s ease;
           transition: transform 0.9s ease;
+  line-height: 1em;
+  margin-bottom: .3em;
 }
 main h2 {
   font-weight: 400;
@@ -124,6 +137,7 @@ main h2 {
           transform: scale(0.6);
   -webkit-transition: -webkit-transform 0.9s ease;
           transition: transform 0.9s ease;
+  line-height: 1em;
 }
 main ul.links {
   padding: 0;
