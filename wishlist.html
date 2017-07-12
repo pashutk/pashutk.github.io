@@ -65,12 +65,12 @@
                 }
 
                 var dataStore = Backendless.Persistence.of( Wishes ); 
-                var wishes = dataStore.find().data;
-
-                var wishesParent = document.getElementById('wishes');
-                for(var i = 0; i < wishes.length; i++) {
-                    wishesParent.appendChild(getWishElement(wishes[i]));
-                }
+                dataStore.find().then(function(wishes){
+                    var wishesParent = document.getElementById('wishes');
+                    for(var i = 0; i < wishes.length; i++) {
+                        wishesParent.appendChild(getWishElement(wishes[i]));
+                    }    
+                });
             };
         </script>
 
